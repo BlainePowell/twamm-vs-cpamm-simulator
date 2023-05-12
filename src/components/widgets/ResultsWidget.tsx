@@ -35,7 +35,14 @@ const ResultsWidget = ({ setDisplayResults, setSwapAmount, swapAmount, setTime, 
                 <input
                     className="h-full focus:outline-none bg-transparent text-2xl font-bold text-white"
                     value={swapAmount}
-                    onChange={(e) => setSwapAmount(parseInt(e.target.value))}
+                    onChange={(e) => {
+                        const newValue = parseInt(e.target.value);
+                        if (!isNaN(newValue)) {
+                            setSwapAmount(newValue);
+                        } else {
+                            setSwapAmount("");
+                        }
+                    }}
                 />
             </div>
             <div className="h-[60px] flex flex-col  mt-5 items-start bg-transparent">

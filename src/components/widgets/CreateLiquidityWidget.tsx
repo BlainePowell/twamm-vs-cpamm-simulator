@@ -79,7 +79,14 @@ const InputWidget = ({ inputs }: InputWidgetProps) => {
                             className="h-full focus:outline-none bg-transparent text-xl text-white font-bold"
                             value={inputValue[input.name]}
                             name={input.name}
-                            onChange={(e) => handleInputChange(input.name, +e.target.value)}
+                            onChange={(e) => {
+                                const newValue = parseInt(e.target.value);
+                                if (!isNaN(newValue)) {
+                                    handleInputChange(input.name, +e.target.value)
+                                } else {
+                                    setInputValue("")
+                                }
+                            }}
                         />
                     </div>
                 </React.Fragment>
