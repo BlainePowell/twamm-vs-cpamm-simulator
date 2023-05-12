@@ -73,7 +73,7 @@ const NavBar = ({
     return (
         <header className="flex p-8 w-full max-w-[115rem] bg-black">
             <Head>
-                <title>Aqueduct</title>
+                <title>Aqueduct TWAMM</title>
                 <meta name="description" content="Swap tokens every second." />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
