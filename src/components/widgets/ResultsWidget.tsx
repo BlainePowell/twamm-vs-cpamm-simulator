@@ -23,7 +23,7 @@ const ResultsWidget = ({ setDisplayResults, setSwapAmount, swapAmount, setTime, 
             <div className="absolute top-0 bottom-0 left-0 right-0 bg-[#262626] rounded-gc-4xl -z-10 pointer-events-none" />
             <div className="absolute top-[0.2rem] bottom-[0.2rem] left-[0.2rem] right-[0.2rem] bg-black rounded-gc-almost4xl -z-10 pointer-events-none" />
             <div className="flex">
-                <p className="text-white text-2xl font-bold">Simulate</p>
+                <p className="text-white text-2xl font-bold">Simulate Swap</p>
                 <div className="flex grow" />
                 <button className="text-lightGray" type="button">
                     <TbSettings size={25} />
