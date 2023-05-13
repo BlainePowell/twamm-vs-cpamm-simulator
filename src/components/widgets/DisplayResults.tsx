@@ -173,11 +173,11 @@ const DisplayResults = ({ dataArray, setDisplayResults, swapAmount, displayResul
 
     return (
         <div className='flex flex-col flex-wrap items-center justify-center space-y-10'>
-            <div className='w-2/3 mt-[15px] bg-transparent'>
+            <div className='hidden lg:flex w-2/3 mt-[15px] bg-transparent'>
                 <canvas ref={chartRef} className='w-full' />
             </div>
-            <div className='flex flex-row space-x-6 flex-wrap'>
-                <div className="relative flex flex-col px-6 pb-6 pt-8 2border-[3px] 2rounded-[3.25rem] 2border-[#262626] z-10 w-[400px]">
+            <div className='flex flex-row flex-wrap items-center justify-center'>
+                <div className="relative flex flex-col px-6 pb-6 pt-8 2border-[3px] 2rounded-[3.25rem] 2border-[#262626] z-10 w-[400px] sm:mr-2 mt-2">
                     <div className="absolute overflow-hidden 2bg-red-500/25 top-10 left-[0.5rem] right-[0.5rem] bottom-[0.5rem] rounded-gc-3xl z-50 pointer-events-none">
                         <div
                             className={`absolute bottom-0 left-0 right-0 bg-darkGray/70 backdrop-blur-3xl blur-lg z-50 transition-all rounded-[2rem] duration-300 ${showModal
@@ -218,7 +218,7 @@ const DisplayResults = ({ dataArray, setDisplayResults, swapAmount, displayResul
                         ))}
                     </div>
                 </div>
-                <div className="relative flex flex-col px-6 pb-6 pt-8 2border-[3px] 2rounded-[3.25rem] 2border-[#262626] z-10 w-[400px]">
+                <div className="relative flex flex-col px-6 pb-6 pt-8 2border-[3px] 2rounded-[3.25rem] 2border-[#262626] z-10 w-[400px] mt-2">
                     <div className="absolute overflow-hidden 2bg-red-500/25 top-10 left-[0.5rem] right-[0.5rem] bottom-[0.5rem] rounded-gc-3xl z-50 pointer-events-none">
                         <div
                             className={`absolute bottom-0 left-0 right-0 bg-darkGray/70 backdrop-blur-3xl blur-lg z-50 transition-all rounded-[2rem] duration-300 ${showModal

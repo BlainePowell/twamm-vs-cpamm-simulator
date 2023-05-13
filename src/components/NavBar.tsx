@@ -13,6 +13,7 @@ import React, {
 import { useRouter } from "next/router";
 import { useSpring, animated } from "react-spring";
 import logo from "../../public/aqlogo.png";
+import { Twirl as Hamburger } from 'hamburger-react'
 
 const navItems: { icon: JSX.Element; label: string; selected: boolean }[] = [
     {
@@ -77,7 +78,7 @@ const NavBar = ({
                 <meta name="description" content="Swap tokens every second." />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <div className="flex items-center space-x-2 text-aqueductBlue">
+            <div className="flex items-center justify-between space-x-2 text-aqueductBlue w-full md:w-auto z-2">
                 <Image
                     src={logo}
                     alt="Aqueduct logo"
@@ -103,11 +104,11 @@ const NavBar = ({
                         setIsShown(!isShown);
                     }}
                 >
-                    {isShown ? <IoClose size={28} /> : <IoMenu size={28} />}
+                    <Hamburger direction="left" toggled={isShown} toggle={setIsShown} duration={.7} />
                 </button>
             </div>
             <div className="flex-grow" /> {/* change class to flex-grow */}
-            <nav className="flex justify-center bg-darkGray 2rounded-c-2xl mr-[190px] rounded-2xl py-2 text-white font-semibold">
+            <nav className="md:flex justify-center hidden bg-darkGray 2rounded-c-2xl mr-[190px] rounded-2xl py-2 text-white font-semibold">
                 <ul className="flex list-none m-0 p-0 relative">
                     <animated.li
                         className="highlighter absolute bottom-0 left-0 bg-highlightGray 2rounded-c-xl rounded-xl z-0"
@@ -142,7 +143,6 @@ const NavBar = ({
             </nav>
             <div className="flex-grow" /> {/* change class to flex-grow */}
         </header>
-
     );
 };
 
