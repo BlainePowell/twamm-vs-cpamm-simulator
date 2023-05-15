@@ -3,7 +3,7 @@ import { AiOutlineCloseSquare } from 'react-icons/ai'
 import { Chart, registerables } from 'chart.js';
 
 
-const DisplayResults = ({ dataArray, setDisplayResults, swapAmount, displayResults, time }) => {
+const DisplayResults = ({ dataArray, setDisplayResults, swapAmount, displayResults, time, arbTime }) => {
     const [showModal, setShowModal] = useState(false);
     const [cpammOutput, setCpammOutput] = useState(0);
     const [cpammPriceImpact, setCpammPriceImpact] = useState(0);
@@ -55,7 +55,7 @@ const DisplayResults = ({ dataArray, setDisplayResults, swapAmount, displayResul
             // Perform the swap
             let seconds = 0;
             let totalSwapOut = 0;
-            const t = 10; // how often an arb happens
+            const t = arbTime; // how often an arb happens
             while (totalSwapAmount > 0) {
                 /** settle swapped amount **/
                 if (totalSwapAmount < (swapRate * t)) {

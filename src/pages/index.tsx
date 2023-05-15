@@ -66,6 +66,7 @@ function Home() {
   const [displayResults, setDisplayResults] = useState(false);
   const [swapAmount, setSwapAmount] = useState(100000000);
   const [time, setTime] = useState(168);
+  const [arbTime, setArbTime] = useState(10);
 
   useEffect(() => {
     document.body.style.background = "#000000";
@@ -128,6 +129,7 @@ function Home() {
             swapAmount={swapAmount}
             displayResults={displayResults}
             time={time}
+            arbTime={arbTime}
           />
         ) : (
           <>
@@ -140,6 +142,8 @@ function Home() {
                 swapAmount={swapAmount}
                 setTime={setTime}
                 time={time}
+                setArbTime={setArbTime}
+                arbTime={arbTime}
               />
             )}
           </>

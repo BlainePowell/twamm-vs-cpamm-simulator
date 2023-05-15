@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import 'next/image'
 import { TbSettings } from 'react-icons/tb'
 
-const ResultsWidget = ({ setDisplayResults, setSwapAmount, swapAmount, setTime, time }) => {
+const ResultsWidget = ({ setDisplayResults, setSwapAmount, swapAmount, setTime, time, setArbTime, arbTime }) => {
     const [showModal, setShowModal] = useState(false);
 
     return (
@@ -52,9 +52,23 @@ const ResultsWidget = ({ setDisplayResults, setSwapAmount, swapAmount, setTime, 
                     className="transparent h-1.5 w-full cursor-pointer appearance-none rounded-lg border-transparent mb-5 bg-highlightGray"
                     id="customRange1"
                     max={336}
-                    defaultValue={168}
+                    defaultValue={time}
                     onChange={(e) => {
                         setTime(parseInt(e.target.value))
+                    }}
+                />
+            </div>
+            <div className="h-[60px] flex flex-col  mt-5 items-start bg-transparent">
+                <h1 className='text-white text-xl mb-5 font-bold'>Arbitrage: Every {arbTime} Seconds</h1>
+                <input
+                    type="range"
+                    className="transparent h-1.5 w-full cursor-pointer appearance-none rounded-lg border-transparent mb-5 bg-highlightGray"
+                    id="customRange1"
+                    max={60}
+                    min={1}
+                    defaultValue={arbTime}
+                    onChange={(e) => {
+                        setArbTime(parseInt(e.target.value))
                     }}
                 />
             </div>
