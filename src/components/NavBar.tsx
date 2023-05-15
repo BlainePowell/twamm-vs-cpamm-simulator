@@ -19,12 +19,12 @@ const navItems: { icon: JSX.Element; label: string; selected: boolean }[] = [
     {
         icon: <AiOutlineLineChart size={18} />,
         label: "Results",
-        selected: false,
+        selected: true,
     },
     {
         icon: <TbArrowsRightLeft size={18} />,
         label: "Add Liquidity",
-        selected: true,
+        selected: false,
     },
 ];
 
@@ -123,12 +123,12 @@ const NavBar = ({
                                 className="text-white"
                                 onClick={() => {
                                     if (label === "Results") {
-                                        setIsResult(true);
+                                        setIsResult(false);
                                         setDisplayResults(false)
                                         navItems[index].selected = true;
                                         navItems[1].selected = false;
                                     } else {
-                                        setIsResult(false);
+                                        setIsResult(true);
                                         setDisplayResults(false)
                                         navItems[index].selected = true;
                                         navItems[0].selected = false;

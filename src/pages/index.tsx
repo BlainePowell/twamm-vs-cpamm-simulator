@@ -19,8 +19,48 @@ const navItems: { icon: JSX.Element; label: string; selected: boolean }[] = [
   },
 ];
 
+interface Input {
+  name: string;
+  logo: string;
+  startingLiquidity: number;
+}
+
+const AqueductProps: Input[] = [
+  {
+    name: "Token0",
+    logo: "/usdc-logo.png",
+    startingLiquidity: 1000000
+  },
+  {
+    name: "Token1",
+    logo: "/dai-logo.png",
+    startingLiquidity: 1000000
+  }
+]
+
+const CpammProps: Input[] = [
+  {
+    name: "Token2",
+    logo: "/usdc-logo.png",
+    startingLiquidity: 100000000
+  },
+  {
+    name: "Token3",
+    logo: "/dai-logo.png",
+    startingLiquidity: 100000000
+  }
+]
+
+const inputArray: Input[] = [...AqueductProps, ...CpammProps];
+
+const Data = inputArray.map((input) => ({
+  name: input.name,
+  logo: input.logo,
+  startingLiquidity: input.startingLiquidity,
+}))
+
 function Home() {
-  const [dataArray, setDataArray] = useState([])
+  const [dataArray, setDataArray] = useState(Data)
   const [isShown, setIsShown] = useState(false)
   const [isResult, setIsResult] = useState(false);
   const [displayResults, setDisplayResults] = useState(false);
@@ -29,7 +69,8 @@ function Home() {
 
   useEffect(() => {
     document.body.style.background = "#000000";
-  }, [])
+    console.log(dataArray)
+  }, [dataArray])
 
   return (
     <div className="flex flex-col w-screen h-screen bg-black">
@@ -56,13 +97,13 @@ function Home() {
                   className="text-white font-bold text-2xl"
                   onClick={() => {
                     if (label === "Results") {
-                      setIsResult(true);
+                      setIsResult(false);
                       setDisplayResults(false)
                       navItems[index].selected = true;
                       navItems[1].selected = false;
                       setIsShown(false)
                     } else {
-                      setIsResult(false);
+                      setIsResult(true);
                       setDisplayResults(false)
                       navItems[index].selected = true;
                       navItems[0].selected = false;
@@ -91,6 +132,8 @@ function Home() {
         ) : (
           <>
             {isResult ? (
+              <CreateLiquidityWidget setDataArray={setDataArray} />
+            ) : (
               <ResultsWidget
                 setDisplayResults={setDisplayResults}
                 setSwapAmount={setSwapAmount}
@@ -98,8 +141,6 @@ function Home() {
                 setTime={setTime}
                 time={time}
               />
-            ) : (
-              <CreateLiquidityWidget setDataArray={setDataArray} />
             )}
           </>
         )}
